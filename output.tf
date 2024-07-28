@@ -14,5 +14,6 @@ output "role_arn" {
 }
 
 output "aws_cli_to_run" {
-  value = "./aws_signing_helper credential-process --certificate ${local_file.ishika_internal_signed_cert.filename} --private-key ${local_file.ishika_internal_key.filename} --profile-arn ${aws_rolesanywhere_profile.ishika_rolesanywhere_profile.arn} --role-arn ${aws_iam_role.ishika_rolesanywhere_admin_role.arn} --trust-anchor-arn ${aws_rolesanywhere_trust_anchor.ishika_rolesanywhere_trust_anchor.arn}"
+  value = "aws_signing_helper credential-process --certificate ${local_file.ishika_internal_signed_cert.filename} --private-key ${local_file.ishika_internal_key.filename} --profile-arn ${aws_rolesanywhere_profile.ishika_rolesanywhere_profile.arn} --role-arn ${aws_iam_role.ishika_rolesanywhere_admin_role.arn} --trust-anchor-arn ${aws_rolesanywhere_trust_anchor.ishika_rolesanywhere_trust_anchor.arn}"
+description = "cli command to get cred"
 }

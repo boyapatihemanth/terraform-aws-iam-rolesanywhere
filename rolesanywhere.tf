@@ -1,5 +1,6 @@
 resource "aws_rolesanywhere_trust_anchor" "ishika_rolesanywhere_trust_anchor" {
   name = "ishika_ca_cert"
+  enabled = true
   source {
     source_data {
       x509_certificate_data = tls_self_signed_cert.ishika_ca_cert.cert_pem
@@ -28,5 +29,6 @@ resource "aws_iam_role_policy_attachment" "ishika_rolesanywhere_iam_role_policy_
 
 resource "aws_rolesanywhere_profile" "ishika_rolesanywhere_profile" {
   name      = "ishika_admin_profile"
+  enabled = true
   role_arns = [aws_iam_role.ishika_rolesanywhere_admin_role.arn]
 }
